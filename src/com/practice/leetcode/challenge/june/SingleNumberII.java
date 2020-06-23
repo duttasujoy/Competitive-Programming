@@ -1,15 +1,23 @@
 package com.practice.leetcode.challenge.june;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class SingleNumberII {
     public int singleNumber(int[] nums) {
-        Map<Integer,Integer> map = new HashMap<>();
-        int single = nums[0];
-        for(int i:nums){
-//            if()
+    	int n=nums.length;
+        if(n<3)
+            return nums[0];
+        
+        Arrays.sort(nums);
+        if(nums[0]!=nums[1])
+            return nums[0];
+        int i=1;
+        while(i<n)
+        {
+            if(nums[i]!=nums[i-1])
+                return nums[i-1];
+            i+=3;
         }
-		return single;
+        return nums[n-1];
     }
 }
