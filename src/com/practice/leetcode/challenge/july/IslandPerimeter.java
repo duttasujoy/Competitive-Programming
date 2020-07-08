@@ -10,7 +10,7 @@ public class IslandPerimeter {
                 if(grid[i][j]==1){
                     dfs(grid,i,j,peri);
                     break;
-                }
+                } 
             }
         }
         return peri.get();
