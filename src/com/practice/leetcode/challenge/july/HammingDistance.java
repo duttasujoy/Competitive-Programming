@@ -14,7 +14,7 @@ public class HammingDistance {
         { 
             setBits += x & 1; 
             x >>= 1; 
-        } 
+        }  
 
         return setBits; 
     }
