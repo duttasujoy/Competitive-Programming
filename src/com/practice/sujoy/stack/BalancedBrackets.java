@@ -6,10 +6,20 @@ import java.util.Stack;
 public class BalancedBrackets {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-//		String s = "{)[](}]}]}))}(())(";
-		String s = sc.nextLine();
-		System.out.println(isBalanced(s));
+//		Scanner sc = new Scanner(System.in);
+////		String s = "{)[](}]}]}))}(())(";
+//		String s = sc.nextLine();
+//		System.out.println(isBalanced(s));
+		String s = "()()((";
+		System.out.println(isBalanced(s, 0, ')'));
+		byte a = 1;
+	    int x = 1;
+	    while(a< 344 ){
+	      a+=2;
+	      x+=3;
+	    }
+	    x +=a;
+	    System.out.print(x);
 
 	}
 
@@ -29,6 +39,17 @@ public class BalancedBrackets {
 			}
 		}
 		return "YES";
+	}
+	
+	private static String isBalanced(String s,int pos,char c) {
+		if(pos >s.length()-1){
+			return "NO";
+		}
+		if(s.charAt(pos)!=c){
+			return isBalanced(s, pos+1, ')');
+		}
+		
+		return isBalanced(s, pos+2, ')');
 	}
 
 	private static char findAlt(char ch) {
